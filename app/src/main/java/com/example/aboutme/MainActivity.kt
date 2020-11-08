@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.databinding.DataBindingUtil
 import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainActivityBinding = ActivityMainBinding.inflate(layoutInflater)
+        mainActivityBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val root = mainActivityBinding.root
         setContentView(root)
 
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateNicknameText() {
         mainActivityBinding.apply {
-            nicknameText.text = mainActivityBinding.nicknameEdit.text
+            nicknameText.text = nicknameEdit.text
+            invalidateAll() // to refresh the views and recreate the views again with new data
             nicknameText.visibility = View.VISIBLE
             nicknameEdit.visibility = View.GONE
             doneButton.visibility = View.GONE
