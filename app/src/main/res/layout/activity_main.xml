@@ -24,4 +24,22 @@
         android:contentDescription="@string/yellow_star"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bio_nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/bio_text"
+            style="@style/NameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="@dimen/sherlock_bio_spacing"
+            android:paddingStart="@dimen/sherlock_bio_padding"
+            android:paddingEnd="@dimen/sherlock_bio_padding"
+            android:text="@string/sherlock_bio" />
+
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>
